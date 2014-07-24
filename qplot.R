@@ -1,1 +1,1 @@
-test
+> head(diamonds)
