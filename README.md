@@ -91,7 +91,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 
 + qplot基本用法
 
-carat 與price的散布圖
+  carat 與price的散布圖
 
 ```r
   qplot(carat, price, data = dsmall, main = "figure-1")
@@ -100,7 +100,6 @@ carat 與price的散布圖
   qplot(carat, x * y * z, data = dsmall, main = "figure-3")
   ## 註：一頁多圖在此使用gridExtra套件中的grid.arrange函數
 ```
-
 + 資料按照圖形屬性分類
 
 ```r
@@ -109,12 +108,61 @@ carat 與price的散布圖
 ```
 
 上圖4：資料將color變量映射到點(point)的顏色(colour)
+
 上圖5：資料將cut變量映射到點(point)的形狀(shape)
 
    ◎ I()屬性：手動設定圖形屬性
 ```r
-     p6 <- qplot(carat, price, data = dsmall, main = "figure-6", colour = I("red"))
-     p7 <- qplot(carat, price, data = dsmall, main = "figure-7", shape = I("α"))
-     p8 <- qplot(carat, price, data = dsmall, main = "figure-8", alpha = I(1/5))
-     p9 <- qplot(carat, price, data = dsmall, main = "figure-9", alpha = I(1/10))
+   p6 <- qplot(carat, price, data = dsmall, main = "figure-6", colour = I("red"))
+   p7 <- qplot(carat, price, data = dsmall, main = "figure-7", shape = I("α"))
+   p8 <- qplot(carat, price, data = dsmall, main = "figure-8", alpha = I(1/5))
+   p9 <- qplot(carat, price, data = dsmall, main = "figure-9", alpha = I(1/10))
+```
+上圖6, 7：分別設定圖形的顏色為紅色，以及圖形的形狀為α
+
+上圖8, 9：設定圖形的透明度(alpha值介於0～1)
+
++ 幾何對象(geom)
+
+直至目前為止我們所繪製的圖形其幾何對象都是point，但在統計圖形上經常用到的還有line, smooth line, boxplot,…等，故在此會介紹幾種在ggplot2中的幾何對象。
+
+- geom = "point"		##預設的幾何對象，用於繪製散布圖
+- geom = "smooth"	##繪製一條平滑曲線，包含配適線與標準誤
+- geom = "boxplot"	##繪製箱型圖
+- geom = "histogram", geom = "density"	## Continuous data
+- geom = "bar"					## Discrete data
+- geom = "line", geom = "path"
+
+
+
+1). geom = c("point", "smooth")		##配適曲線，灰色部份為標準誤
+
+```r
+p10 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-10")
+p11 <- qplot(carat, price, data = diamonds, geom = c("point", "smooth"), main = "figure-11")
+```
+
+a).	灰色部份為標準誤的範圍，若不想繪製標準誤，可添加se = FALSE這個參數設定。
+
+b).	figure-10默認採用的配適方法為method = "loess"
+
+c).	figure-11配適過程中因為資料點大於1,000，故不適宜採用method = "loess"支配適方法，因此qplot會默認使用method = "gam", formula: y ~ s(x, bs = "cs")進行配適。
+             
+d).	一些配適方法：
+
+   配適直線
+    
+    ■	method = "lm"		
+    
+    ■ method = "rlm"			##與lm類似；但對NA值不敏感
+    
+   配適多項式
+    
+    ■ method = "lm", formula: y ~ poly(x, k)
+    
+    ■ method = "lm", formula: y ~ ns(x, k)		##須library(splines)
+
+
+2). 曲線配適平滑程度參數調用(span = …)
+```r
 ```
