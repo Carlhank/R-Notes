@@ -27,11 +27,12 @@ install.packages("ggplot2")
 
 ###➢ qplot 快速繪圖
 #### 簡介
-qplot：為quick plot的縮寫，目的為讓使用者快速的繪製出複雜的圖形，qplot的使用方式類似於R中的基本繪圖函數plot，
-       我們可以利用?qplot查詢相關參數的描述。
+    qplot：為quick plot的縮寫，目的為讓使用者快速的繪製出複雜的圖形，qplot的使用方式類似於R中的基本繪圖函數plot，
+    
+           我們可以利用?qplot查詢相關參數的描述。
 
-#### 例：鑽石數據集繪圖
-在ggplot2中提供了一個diamonds的數據集，我們將利用這個數據集提供一個qplot的繪圖範例。
+#### ☞例：鑽石數據集繪圖
+    在ggplot2中提供了一個diamonds的數據集，我們將利用這個數據集提供一個qplot的繪圖範例。
 * diamonds 資料集檢視
 
 ```r
@@ -126,7 +127,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 
 + 幾何對象(geom)
 
-直至目前為止我們所繪製的圖形其幾何對象都是point，但在統計圖形上經常用到的還有line, smooth line, boxplot,…等，故在此會介紹幾種在ggplot2中的幾何對象。
+    直至目前為止我們所繪製的圖形其幾何對象都是point，但在統計圖形上經常用到的還有line, smooth line, boxplot,…等，故在此會介紹幾種在ggplot2中的幾何對象。
 
 - geom = "point"		##預設的幾何對象，用於繪製散布圖
 - geom = "smooth"	##繪製一條平滑曲線，包含配適線與標準誤
@@ -169,4 +170,41 @@ d).一些配適方法：
 
 **2).** 曲線配適平滑程度參數調用(span = …)
 ```r
+p12 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-12", span = 0.2)
+p13 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-13", span = 1)
 ```
+
+**3).** geom = boxplot與geom = jitter(擾動點圖)
+    在data frame中可能包含類別型變量與連續型變量，我們想知道連續型變量如何隨著類別型變量變化而變化，因此可藉由boxplot或jitter達到這個目的。
+```r
+p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
+p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
+```
+
+**4).**	geom = "histogram", geom = "density"
+```r
+p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
+p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
+```
+
++ binwidth(組距參數)與adjust(平滑程度參數)
+
+    binwidth值大時能表現出數據總體特徵；值小時能表現出較多數據細節，而密度曲線圖在adjust調用上十分的重要(adjust愈大，曲線愈平滑)。
+
+```r
+p18 <- qplot(carat, data = diamonds, geom = "histogram",
+binwidth = 1, main = "figure-18\n(binwidth = 1)")
+p19 <- qplot(carat, data = diamonds, geom = "histogram",
+binwidth = 0.1, main = "figure-19\n(binwidth = 0.1)")
+p20 <- qplot(carat, data = diamonds, geom = "histogram",
+binwidth = 0.01, main = "figure-20\n(binwidth = 0.01)")
+```
+
+```r
+p22 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.5, main = "figure-22\n(adjust = 0.5)")
+p21 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.1, main = "figure-21\n(adjust = 0.1)")
+p23 <- qplot(carat, data = diamonds, geom = "density", adjust = 1,
+main = "figure-23\n(adjust = 1)")
+```
+
+
