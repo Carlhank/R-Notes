@@ -34,7 +34,7 @@ library(ggplot2)
 
 #### ☞例：鑽石數據集繪圖
     在ggplot2中提供了一個diamonds的數據集，我們將利用這個數據集提供一個qplot的繪圖範例。
-* diamonds 資料集檢視
+##### diamonds 資料集檢視
 
 ```r
 qplot(carat, price, data = diamonds)
@@ -49,7 +49,7 @@ qplot(carat, price, data = diamonds)
 |  0.31|Good      |J     |SI2     |  63.3|    58|   335| 4.34| 4.35| 2.75|
 |  0.24|Very Good |J     |VVS2    |  62.8|    57|   336| 3.94| 3.96| 2.48|
 
-* 變數意義：
+##### 變數意義：
 
   **鑽石質量4C**
 
@@ -91,7 +91,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 |47744 |  0.59|Ideal     |G     |SI1     |  61.3|  56.0|  1891| 5.41| 5.43| 3.32|
 |14262 |  1.24|Premium   |E     |SI1     |  58.5|  60.0|  5775| 7.08| 7.01| 4.11|
 
-+ qplot基本用法
+##### qplot基本用法
 
   carat 與price的散布圖
 
@@ -126,7 +126,9 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 
 上圖8, 9：設定圖形的透明度(alpha值介於0～1)
 
-+ 幾何對象(geom)
+<br></br>
+
+##### 幾何對象(geom)
 
     直至目前為止我們所繪製的圖形其幾何對象都是point，但在統計圖形上經常用到的還有line, smooth line, boxplot,…等，故在此會介紹幾種在ggplot2中的幾何對象。
 
