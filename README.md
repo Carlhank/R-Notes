@@ -1,5 +1,5 @@
 R-Notes
 =======
-'''r
+```r
 qplot(carat, price, data = diamonds)
-'''
+```
