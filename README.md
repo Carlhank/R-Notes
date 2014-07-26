@@ -20,9 +20,10 @@
 
   ※註：ggplot2 只能繪製出**_靜態圖形_**
 
-###➢ 安裝ggplot2套件
+###➢ 安裝與載入ggplot2套件
 ```r
 install.packages("ggplot2")
+library(ggplot2)
 ```
 
 ###➢ qplot 快速繪圖
