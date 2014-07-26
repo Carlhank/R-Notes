@@ -111,7 +111,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 
 上圖5：資料將cut變量映射到點(point)的形狀(shape)
 
->   ◎ I()屬性：手動設定圖形屬性
+  ◎ I()屬性：手動設定圖形屬性
 
 ```r
    p6 <- qplot(carat, price, data = dsmall, main = "figure-6", colour = I("red"))
@@ -134,7 +134,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 - geom = "bar"					## Discrete data
 - geom = "line", geom = "path"
 
-> ☞ <font color='red'>Examples：</font>
+☞ **Examples：**
 
 **1).** geom = c("point", "smooth")		##配適曲線，灰色部份為標準誤
 
