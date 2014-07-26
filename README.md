@@ -110,7 +110,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 上圖4：資料將color變量映射到點(point)的顏色(colour)
 
 上圖5：資料將cut變量映射到點(point)的形狀(shape)
-
+<br></br>
    ◎ I()屬性：手動設定圖形屬性
 ```r
    p6 <- qplot(carat, price, data = dsmall, main = "figure-6", colour = I("red"))
@@ -134,7 +134,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 - geom = "line", geom = "path"
 
 <br></br>
-1). geom = c("point", "smooth")		##配適曲線，灰色部份為標準誤
+**1).** geom = c("point", "smooth")		##配適曲線，灰色部份為標準誤
 
 ```r
 p10 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-10")
@@ -163,6 +163,6 @@ d).一些配適方法：
     ■ method = "lm", formula: y ~ ns(x, k)		##須library(splines)
 
 
-2). 曲線配適平滑程度參數調用(span = …)
+**2).** 曲線配適平滑程度參數調用(span = …)
 ```r
 ```
