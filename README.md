@@ -28,7 +28,7 @@ library(ggplot2)
 
 ###➢ qplot 快速繪圖
 #### 簡介
-qplot：為quick plot的縮寫，目的為讓使用者快速的繪製出複雜的圖形，qplot的使用方式類似於R中的基本繪圖函數plot，我們可以利用?qplot查詢相關參數的描述。
+qplot：為quick plot的縮寫，目的為讓使用者快速的繪製出複雜的圖形，qplot的使用方式類似於R中的基本繪圖函數plot，我們可以利用```?qplot```查詢相關參數的描述。
 
 #### ☞例：鑽石數據集繪圖
 在ggplot2中提供了一個diamonds的數據集，我們將利用這個數據集提供一個qplot的繪圖範例。
