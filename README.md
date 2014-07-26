@@ -192,19 +192,15 @@ p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figu
     binwidth值大時能表現出數據總體特徵；值小時能表現出較多數據細節，而密度曲線圖在adjust調用上十分的重要(adjust愈大，曲線愈平滑)。
 
 ```r
-p18 <- qplot(carat, data = diamonds, geom = "histogram",
-binwidth = 1, main = "figure-18\n(binwidth = 1)")
-p19 <- qplot(carat, data = diamonds, geom = "histogram",
-binwidth = 0.1, main = "figure-19\n(binwidth = 0.1)")
-p20 <- qplot(carat, data = diamonds, geom = "histogram",
-binwidth = 0.01, main = "figure-20\n(binwidth = 0.01)")
+p18 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 1, main = "figure-18\n(binwidth = 1)")
+p19 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.1, main = "figure-19\n(binwidth = 0.1)")
+p20 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.01, main = "figure-20\n(binwidth = 0.01)")
 ```
 
 ```r
 p22 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.5, main = "figure-22\n(adjust = 0.5)")
 p21 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.1, main = "figure-21\n(adjust = 0.1)")
-p23 <- qplot(carat, data = diamonds, geom = "density", adjust = 1,
-main = "figure-23\n(adjust = 1)")
+p23 <- qplot(carat, data = diamonds, geom = "density", adjust = 1, main = "figure-23\n(adjust = 1)")
 ```
 
 
