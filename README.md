@@ -130,7 +130,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 
 ##### 幾何對象(geom)
 
-    直至目前為止我們所繪製的圖形其幾何對象都是point，但在統計圖形上經常用到的還有line, smooth line, boxplot,…等，故在此會介紹幾種在ggplot2中的幾何對象。
+   直至目前為止我們所繪製的圖形其幾何對象都是point，但在統計圖形上經常用到的還有line, smooth line, boxplot,…等，故在此會介紹幾種在ggplot2中的幾何對象。
 
 - geom = "point"		##預設的幾何對象，用於繪製散布圖
 - geom = "smooth"	##繪製一條平滑曲線，包含配適線與標準誤
