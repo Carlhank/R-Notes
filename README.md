@@ -189,7 +189,7 @@ p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figu
 
 + binwidth(組距參數)與adjust(平滑程度參數)
 
-    binwidth值大時能表現出數據總體特徵；值小時能表現出較多數據細節，而密度曲線圖在adjust調用上十分的重要(adjust愈大，曲線愈平滑)。
+    binwidth值大時能表現出數據總體特徵，值小時能表現出較多數據細節；而密度曲線圖在adjust調用上十分的重要(adjust愈大，曲線愈平滑)。
 
 ```r
 p18 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 1, main = "figure-18\n(binwidth = 1)")
