@@ -2,7 +2,7 @@
 ###➢ 前言
 ###➢	圖形語法概述
 統計圖形：
-<div align = 'cente'r>Wilkinson(2005) 語法概念</div>
+<div align = 'center'>Wilkinson(2005) 語法概念</div>
 
 註：
   * 幾何對象(geometric object, 縮寫為geom)，包含：point, line, bar…
