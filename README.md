@@ -133,8 +133,7 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 - geom = "bar"					## Discrete data
 - geom = "line", geom = "path"
 
-
-
+<br></br>
 1). geom = c("point", "smooth")		##配適曲線，灰色部份為標準誤
 
 ```r
@@ -142,13 +141,14 @@ p10 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "f
 p11 <- qplot(carat, price, data = diamonds, geom = c("point", "smooth"), main = "figure-11")
 ```
 
-a).	灰色部份為標準誤的範圍，若不想繪製標準誤，可添加se = FALSE這個參數設定。
+a).灰色部份為標準誤的範圍，若不想繪製標準誤，可添加se = FALSE這個參數設定。
 
-b).	figure-10默認採用的配適方法為method = "loess"
+b).figure-10默認採用的配適方法為method = "loess"
 
-c).	figure-11配適過程中因為資料點大於1,000，故不適宜採用method = "loess"支配適方法，因此qplot會默認使用method = "gam", formula: y ~ s(x, bs = "cs")進行配適。
+c).figure-11配適過程中因為資料點大於1,000，故不適宜採用method = "loess"支配適方法，
+   因此qplot會默認使用method = "gam", formula: y ~ s(x, bs = "cs")進行配適。
              
-d).	一些配適方法：
+d).一些配適方法：
 
    配適直線
     
