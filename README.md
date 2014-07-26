@@ -47,9 +47,9 @@ qplot(carat, price, data = diamonds)
 |  0.31|Good      |J     |SI2     |  63.3|    58|   335| 4.34| 4.35| 2.75|
 |  0.24|Very Good |J     |VVS2    |  62.8|    57|   336| 3.94| 3.96| 2.48|
 
-變數意義：
+* 變數意義：
 
-**鑽石質量4C**
+  **鑽石質量4C**
 
 1. carat	克拉重量
 2.	cut	切工
@@ -88,3 +88,33 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 |9067  |  1.02|Good      |H     |SI2     |  60.3|  63.0|  4517| 6.45| 6.49| 3.90|
 |47744 |  0.59|Ideal     |G     |SI1     |  61.3|  56.0|  1891| 5.41| 5.43| 3.32|
 |14262 |  1.24|Premium   |E     |SI1     |  58.5|  60.0|  5775| 7.08| 7.01| 4.11|
+
++ qplot基本用法
+
+carat 與price的散布圖
+
+```r
+  qplot(carat, price, data = dsmall, main = "figure-1")
+  ## 可直接對變數做運算，請看figure-2與figure-3
+  qplot(carat, log(price), data = dsmall, main = "figure-2")
+  qplot(carat, x * y * z, data = dsmall, main = "figure-3")
+  ## 註：一頁多圖在此使用gridExtra套件中的grid.arrange函數
+```
+
++ 資料按照圖形屬性分類
+
+```r
+  qplot(carat, price, data = dsmall, main = "figure-4", colour = color)
+  qplot(carat, price, data = dsmall, main = "figure-5", shape = cut)
+```
+
+上圖4：資料將color變量映射到點(point)的顏色(colour)
+上圖5：資料將cut變量映射到點(point)的形狀(shape)
+
+   ◎ I()屬性：手動設定圖形屬性
+```r
+     p6 <- qplot(carat, price, data = dsmall, main = "figure-6", colour = I("red"))
+     p7 <- qplot(carat, price, data = dsmall, main = "figure-7", shape = I("α"))
+     p8 <- qplot(carat, price, data = dsmall, main = "figure-8", alpha = I(1/5))
+     p9 <- qplot(carat, price, data = dsmall, main = "figure-9", alpha = I(1/10))
+```
