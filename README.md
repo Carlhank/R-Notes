@@ -2,6 +2,7 @@
 ###➢ 前言
 ###➢ 圖形語法概述
 統計圖形：
+![wilkinson](https://raw.githubusercontent.com/Carlhank/R-Notes/master/ggplot_figure/Wilkinson_grammar.png)
 <div align = 'center'>Wilkinson(2005) 語法概念</div>
 
 註：
