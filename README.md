@@ -2,6 +2,7 @@
 ###➢ 前言
 ###➢ 圖形語法概述
 統計圖形：
+![wilkinson](https://raw.githubusercontent.com/Carlhank/R-Notes/master/ggplot_figure/Wilkinson_grammar.png)
 <div align = 'center'>Wilkinson(2005) 語法概念</div>
 
 註：
@@ -37,7 +38,7 @@ qplot：為quick plot的縮寫，目的為讓使用者快速的繪製出複雜�
 ##### diamonds 資料集檢視
 
 ```r
-qplot(carat, price, data = diamonds)
+head(diamonds)    ## default n = 6
 ```
 
 | carat|       cut|color |clarity | depth| table| price|    x|    y|    z|
@@ -96,17 +97,17 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
   carat 與price的散布圖
 
 ```r
-  qplot(carat, price, data = dsmall, main = "figure-1")
+  p1 <- qplot(carat, price, data = dsmall, main = "figure-1")
   ## 可直接對變數做運算，請看figure-2與figure-3
-  qplot(carat, log(price), data = dsmall, main = "figure-2")
-  qplot(carat, x * y * z, data = dsmall, main = "figure-3")
+  p2 <- qplot(carat, log(price), data = dsmall, main = "figure-2")
+  p3 <- qplot(carat, x * y * z, data = dsmall, main = "figure-3")
   ## 註：一頁多圖在此使用gridExtra套件中的grid.arrange函數
 ```
 + 資料按照圖形屬性分類
 
 ```r
-  qplot(carat, price, data = dsmall, main = "figure-4", colour = color)
-  qplot(carat, price, data = dsmall, main = "figure-5", shape = cut)
+  p4 <- qplot(carat, price, data = dsmall, main = "figure-4", colour = color)
+  p5 <- qplot(carat, price, data = dsmall, main = "figure-5", shape = cut)
 ```
 
 上圖4：資料將color變量映射到點(point)的顏色(colour)
@@ -171,20 +172,20 @@ d).一些配適方法：
     ■ method = "lm", formula: y ~ ns(x, k)		##須library(splines)
 
 
-**2).** 曲線配適平滑程度參數調用(span = …)
+    曲線配適平滑程度參數調用(span = …)
 ```r
 p12 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-12", span = 0.2)
 p13 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-13", span = 1)
 ```
 
-**3).** geom = boxplot與geom = jitter(擾動點圖)
+**2).** geom = boxplot與geom = jitter(擾動點圖)
     在data frame中可能包含類別型變量與連續型變量，我們想知道連續型變量如何隨著類別型變量變化而變化，因此可藉由boxplot或jitter達到這個目的。
 ```r
 p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
 p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
 ```
 
-**4).**	geom = "histogram", geom = "density"
+**3).**	geom = "histogram", geom = "density"
 ```r
 p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
 p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
