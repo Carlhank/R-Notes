@@ -57,20 +57,28 @@ png("qplot 14-15.png", width = 480, height = 240)
 grid.arrange(p14, p15, ncol = 2)
 dev.off()
 
-    ## binwidth
-    p16 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 1, main = "figure-18\n(binwidth = 1)")
-    p17 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.1, main = "figure-19\n(binwidth = 0.1)")
-    p18 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.01, main = "figure-20\n(binwidth = 0.01)")
+##geom = "histogram", geom = "density"
+p16 <- qplot(carat, data = diamonds, geom = "histogram", main = "figure-16")
+p17 <- qplot(color, data = diamonds, geom = "density", main = "figure-17")
 
-    png("qplot 16-18.png", width = 480, height = 240)
-    grid.arrange(p16, p17, p18, ncol = 3)
+png("qplot 16-17.png", width = 480, height = 240)
+grid.arrange(p16, p17, ncol = 2)
+dev.off()
+
+    ## binwidth
+    p18 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 1, main = "figure-18\n(binwidth = 1)")
+    p19 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.1, main = "figure-19\n(binwidth = 0.1)")
+    p20 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.01, main = "figure-20\n(binwidth = 0.01)")
+
+    png("qplot 18-20.png", width = 480, height = 240)
+    grid.arrange(p18, p19, p20, ncol = 3)
     dev.off()
 
     ## adjust
-    p19 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.5, main = "figure-22\n(adjust = 0.5)")
-    p20 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.1, main = "figure-21\n(adjust = 0.1)")
-    p21 <- qplot(carat, data = diamonds, geom = "density", adjust = 1, main = "figure-23\n(adjust = 1)")
+    p21 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.5, main = "figure-21\n(adjust = 0.1)")
+    p22 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.1, main = "figure-22\n(adjust = 0.5)")
+    p23 <- qplot(carat, data = diamonds, geom = "density", adjust = 1, main = "figure-23\n(adjust = 1)")
 
-    png("qplot 19-21.png", width = 480, height = 240)
-    grid.arrange(p19, p20, p21, ncol = 3)
+    png("qplot 21-23.png", width = 480, height = 240)
+    grid.arrange(p21, p22, p23, ncol = 3)
     dev.off()
