@@ -172,20 +172,20 @@ d).一些配適方法：
     ■ method = "lm", formula: y ~ ns(x, k)		##須library(splines)
 
 
-**2).** 曲線配適平滑程度參數調用(span = …)
+    曲線配適平滑程度參數調用(span = …)
 ```r
 p12 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-12", span = 0.2)
 p13 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-13", span = 1)
 ```
 
-**3).** geom = boxplot與geom = jitter(擾動點圖)
+**2).** geom = boxplot與geom = jitter(擾動點圖)
     在data frame中可能包含類別型變量與連續型變量，我們想知道連續型變量如何隨著類別型變量變化而變化，因此可藉由boxplot或jitter達到這個目的。
 ```r
 p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
 p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
 ```
 
-**4).**	geom = "histogram", geom = "density"
+**3).**	geom = "histogram", geom = "density"
 ```r
 p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
 p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
