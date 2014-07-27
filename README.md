@@ -60,6 +60,7 @@ head(diamonds)    ## default n = 6
 4.	clarity	淨度
 
   **五個物理指標**
+  
 ![diamonds property](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/diamonds_meaning.png)
 
 ```r
