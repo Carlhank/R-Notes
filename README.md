@@ -38,7 +38,7 @@ qplot：為quick plot的縮寫，目的為讓使用者快速的繪製出複雜�
 ##### diamonds 資料集檢視
 
 ```r
-qplot(carat, price, data = diamonds)
+head(diamonds)    ## default n = 6
 ```
 
 | carat|       cut|color |clarity | depth| table| price|    x|    y|    z|
