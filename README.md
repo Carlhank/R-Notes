@@ -97,17 +97,17 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
   carat 與price的散布圖
 
 ```r
-  qplot(carat, price, data = dsmall, main = "figure-1")
+  p1 <- qplot(carat, price, data = dsmall, main = "figure-1")
   ## 可直接對變數做運算，請看figure-2與figure-3
-  qplot(carat, log(price), data = dsmall, main = "figure-2")
-  qplot(carat, x * y * z, data = dsmall, main = "figure-3")
+  p2 <- qplot(carat, log(price), data = dsmall, main = "figure-2")
+  p3 <- qplot(carat, x * y * z, data = dsmall, main = "figure-3")
   ## 註：一頁多圖在此使用gridExtra套件中的grid.arrange函數
 ```
 + 資料按照圖形屬性分類
 
 ```r
-  qplot(carat, price, data = dsmall, main = "figure-4", colour = color)
-  qplot(carat, price, data = dsmall, main = "figure-5", shape = cut)
+  p4 <- qplot(carat, price, data = dsmall, main = "figure-4", colour = color)
+  p5 <- qplot(carat, price, data = dsmall, main = "figure-5", shape = cut)
 ```
 
 上圖4：資料將color變量映射到點(point)的顏色(colour)
