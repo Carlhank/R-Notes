@@ -39,10 +39,22 @@ str(mpg)
 `````
 
 重要變量描述：
-● manufacturer：製造商                 ● model       ：車子型號
-● displ       ：引擎排氣量(升)         ● year        ：汽車出廠年度
-● cyl         ：汽缸數目               ● cty         ：城市道路耗油量
-● hwy         ：高速公路耗油量         ● class       ：類別
+
+● manufacturer：製造商
+
+● model       ：車子型號
+
+● displ       ：引擎排氣量(升)         
+
+● year        ：汽車出廠年度
+
+● cyl         ：汽缸數目               
+
+● cty         ：城市道路耗油量
+
+● hwy         ：高速公路耗油量         
+
+● class       ：類別
 
 
 #####Question：引擎大小與油耗量的關係?
@@ -55,11 +67,12 @@ str(mpg)
 qplot(displ, hwy, data = mpg, colour = factor(cyl))
 ``````
 
-![mpg-scatter]()
+![mpg-scatter](https://github.com/Carlhank/ggplot2-note/blob/master/ggplot_figure/mpg-scatter.png)
 
 這張圖繪製displ與hwy之散布圖，並將cyl當作類別型變量用以區隔散布圖中汽車的汽缸數。
 
 此圖展示了汽缸數較多的車輛：
+
 1. 排氣量大多較汽缸數少的車輛來的多。
 2. 高速公路的耗油量較汽缸數少的車輛來的低。
 
