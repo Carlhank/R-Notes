@@ -244,6 +244,7 @@ p25 <- qplot(carat, data = diamonds, geom = "histogram", fill = color)
 
 **5).** geom = "line"
 
+<br></br>
 ##### 分面(facet)
 
 透過切割數據成多個子集，再繪製成許多窗格的圖形矩陣，以進行數據間的比較。
