@@ -59,7 +59,7 @@ head(diamonds)    ## default n = 6
 4.	clarity	淨度
 
 **五個物理指標**
-  
+
 ![diamonds property](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/diamonds_meaning.png)
 
 ```r
@@ -169,19 +169,19 @@ b).figure-10默認採用的配適方法為method = "loess"
 
 c).figure-11配適過程中因為資料點大於1,000，故不適宜採用method = "loess"支配適方法，
    因此qplot會默認使用method = "gam", formula: y ~ s(x, bs = "cs")進行配適。
-             
+
 d).一些配適方法：
 
    配適直線
-    
-    ■	method = "lm"		
-    
+
+    ■	method = "lm"
+
     ■ method = "rlm"			##與lm類似；但對NA值不敏感
-    
+
    配適多項式
-    
+
     ■ method = "lm", formula: y ~ poly(x, k)
-    
+
     ■ method = "lm", formula: y ~ ns(x, k)		##須library(splines)
 
 
@@ -195,7 +195,7 @@ p13 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "f
 
 **2).** geom = boxplot與geom = jitter(擾動點圖)
     在data frame中可能包含類別型變量與連續型變量，我們想知道連續型變量如何隨著類別型變量變化而變化，因此可藉由boxplot或jitter達到這個目的。
-```r
+https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2021-23.       ...png```r
 p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
 p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
 ```
@@ -229,3 +229,32 @@ p23 <- qplot(carat, data = diamonds, geom = "density", adjust = 1, main = "figur
 ```
 
 ![qplot 21-23](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2021-23.png)
+
++ 類別型變量依據不同的圖形屬性分類
+
+```r
+p24 <- qplot(carat, data = diamonds, geom = "density", colour = color)
+p25 <- qplot(carat, data = diamonds, geom = "histogram", fill = color)
+## fill 代表繪製實心的bar
+```
+
+![qplot 24-25](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2024-25.png)
+
+**4).** geom = "bar"
+
+**5).** geom = "line"
+
+##### 分面(facet)
+
+透過切割數據成多個子集，再繪製成許多窗格的圖形矩陣，以進行數據間的比較。
+
+以```row_var ~ col_var```指定分面形式
+
+- row_var ~ . ：多列單行圖形矩陣
+- . ~ col_var ：單列多行圖形矩陣
+
+```r```
+p26 <- qplot(carat, data = diamonds, geom = "histogram", facets = color ~ ., binwidth = 0.1, xlim = c(0, 3))
+``````
+
+![qplot 26](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2026.png)

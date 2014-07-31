@@ -4,18 +4,18 @@ library(ggplot2)
 
 ## View the diamonds data
 head(diamonds)    ## default n = 6
-str(diamonds)           ## ÀËµøÅÜ¼Æ¸ê®Æ«¬ºA
+str(diamonds)           ## ?Ëµ??Ü¼Æ¸??Æ«??A
 
 ## sample from diamonds data, called dsmall.
-set.seed(1414)      ##³]¸m¶Ã¼ÆÂI¡A¨Ï³o²Õ¼Ë¥»¨ã¦³¦A¥Í©Ê
+set.seed(1414)      ##?]?m?Ã¼??I?A?Ï³o?Õ¼Ë¥??ã¦³?A?Í©?
 dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 
 ## qplot
 p1 <- qplot(carat, price, data = dsmall, main = "figure-1")
-## ¥iª½±µ¹ïÅÜ¼Æ°µ¹Bºâ¡A½Ð¬Ýfigure-2»Pfigure-3
+## ?i???????Ü¼Æ°??B???A?Ð¬?figure-2?Pfigure-3
 p2 <- qplot(carat, log(price), data = dsmall, main = "figure-2")
 p3 <- qplot(carat, x * y * z, data = dsmall, main = "figure-3")
-## µù¡G¤@­¶¦h¹Ï¦b¦¹¨Ï¥ÎgridExtra®M¥ó¤¤ªºgrid.arrange¨ç¼Æ
+## ???G?@???h?Ï¦b???Ï¥?gridExtra?M?ó¤¤ª?grid.arrange????
 grid.arrange(p1, p2, p3, ncol = 3)
 
 p4 <- qplot(carat, price, data = dsmall, main = "figure-4", colour = color)
@@ -24,7 +24,7 @@ grid.arrange(p4, p5, ncol = 2)
 
 ## I() attribute
 p6 <- qplot(carat, price, data = dsmall, main = "figure-6", colour = I("red"))
-p7 <- qplot(carat, price, data = dsmall, main = "figure-7", shape = I("£\"))
+p7 <- qplot(carat, price, data = dsmall, main = "figure-7", shape = I("?\"))
 p8 <- qplot(carat, price, data = dsmall, main = "figure-8", alpha = I(1/5))
 p9 <- qplot(carat, price, data = dsmall, main = "figure-9", alpha = I(1/10))
 
@@ -49,7 +49,7 @@ dev.off()
     grid.arrange(p12, p13, ncol = 2)
     dev.off()
 
-##geom = boxplot»Pgeom = jitter(ÂZ°ÊÂI¹Ï)
+##geom = boxplot?Pgeom = jitter(?Z???I??)
 p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
 p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
 
@@ -75,10 +75,22 @@ dev.off()
     dev.off()
 
     ## adjust
-    p21 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.5, main = "figure-21\n(adjust = 0.1)")
-    p22 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.1, main = "figure-22\n(adjust = 0.5)")
+    p21 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.1, main = "figure-21\n(adjust = 0.1)")
+    p22 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.5, main = "figure-22\n(adjust = 0.5)")
     p23 <- qplot(carat, data = diamonds, geom = "density", adjust = 1, main = "figure-23\n(adjust = 1)")
 
     png("qplot 21-23.png", width = 480, height = 240)
     grid.arrange(p21, p22, p23, ncol = 3)
     dev.off()
+
+p24 <- qplot(carat, data = diamonds, geom = "density", colour = color)
+p25 <- qplot(carat, data = diamonds, geom = "histogram", fill = color) 
+## fill ä»£è¡¨ç¹ªè£½å¯¦å¿ƒçš„bar
+png("qplot 24-25.png", width = 480, height = 240)
+grid.arrange(p24, p25, ncol = 2)
+dev.off()
+
+p26 <- qplot(carat, data = diamonds, geom = "histogram", facets = color ~ ., binwidth = 0.1, xlim = c(0, 3)) 
+png("qplot 26.png", width = 480, height = 640)
+p26
+dev.off()
