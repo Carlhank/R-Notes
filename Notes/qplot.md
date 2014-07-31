@@ -100,10 +100,10 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
   carat 與price的散布圖
 
 ```r
-  p1 <- qplot(carat, price, data = dsmall, main = "figure-1")
+  qplot(carat, price, data = dsmall, main = "figure-1")
   ## 可直接對變數做運算，請看figure-2與figure-3
-  p2 <- qplot(carat, log(price), data = dsmall, main = "figure-2")
-  p3 <- qplot(carat, x * y * z, data = dsmall, main = "figure-3")
+  qplot(carat, log(price), data = dsmall, main = "figure-2")
+  qplot(carat, x * y * z, data = dsmall, main = "figure-3")
   ## 註：一頁多圖在此使用gridExtra套件中的grid.arrange函數
 ```
 
@@ -112,8 +112,8 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 + 資料按照圖形屬性分類
 
 ```r
-  p4 <- qplot(carat, price, data = dsmall, main = "figure-4", colour = color)
-  p5 <- qplot(carat, price, data = dsmall, main = "figure-5", shape = cut)
+  qplot(carat, price, data = dsmall, main = "figure-4", colour = color)
+  qplot(carat, price, data = dsmall, main = "figure-5", shape = cut)
 ```
 
 ![qplot 4-5](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%204-5.png)
@@ -126,10 +126,10 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
   ◎ I()屬性：手動設定圖形屬性
 
 ```r
-   p6 <- qplot(carat, price, data = dsmall, main = "figure-6", colour = I("red"))
-   p7 <- qplot(carat, price, data = dsmall, main = "figure-7", shape = I("α"))
-   p8 <- qplot(carat, price, data = dsmall, main = "figure-8", alpha = I(1/5))
-   p9 <- qplot(carat, price, data = dsmall, main = "figure-9", alpha = I(1/10))
+   qplot(carat, price, data = dsmall, main = "figure-6", colour = I("red"))
+   qplot(carat, price, data = dsmall, main = "figure-7", shape = I("α"))
+   qplot(carat, price, data = dsmall, main = "figure-8", alpha = I(1/5))
+   qplot(carat, price, data = dsmall, main = "figure-9", alpha = I(1/10))
 ```
 
 ![qplot 6-9](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%206-9.png)
@@ -157,8 +157,8 @@ dsmall <- diamonds[sample(nrow(diamonds), 100), ]
 **1).** geom = c("point", "smooth")		##配適曲線，灰色部份為標準誤
 
 ```r
-p10 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-10")
-p11 <- qplot(carat, price, data = diamonds, geom = c("point", "smooth"), main = "figure-11")
+qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-10")
+qplot(carat, price, data = diamonds, geom = c("point", "smooth"), main = "figure-11")
 ```
 
 ![qplot 10-11](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2010-11.png)
@@ -187,8 +187,8 @@ d).一些配適方法：
 
     曲線配適平滑程度參數調用(span = …)
 ```r
-p12 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-12", span = 0.2)
-p13 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-13", span = 1)
+qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-12", span = 0.2)
+qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "figure-13", span = 1)
 ```
 
 ![qplot 12-13](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2012-13.png)
@@ -196,16 +196,16 @@ p13 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "f
 **2).** geom = boxplot與geom = jitter(擾動點圖)
     在data frame中可能包含類別型變量與連續型變量，我們想知道連續型變量如何隨著類別型變量變化而變化，因此可藉由boxplot或jitter達到這個目的。
 ```r
-p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
-p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
+qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
+qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
 ```
 
 ![qplot 14-15](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2014-15.png)
 
 **3).**	geom = "histogram", geom = "density"
 ```r
-p16 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-16")
-p17 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-17")
+qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-16")
+qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-17")
 ```
 
 ![qplot 16-17](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2016-17.png)
@@ -215,17 +215,17 @@ p17 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figu
     binwidth值大時能表現出數據總體特徵，值小時能表現出較多數據細節；而密度曲線圖在adjust調用上十分的重要(adjust愈大，曲線愈平滑)。
 
 ```r
-p18 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 1, main = "figure-18\n(binwidth = 1)")
-p19 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.1, main = "figure-19\n(binwidth = 0.1)")
-p20 <- qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.01, main = "figure-20\n(binwidth = 0.01)")
+qplot(carat, data = diamonds, geom = "histogram", binwidth = 1, main = "figure-18\n(binwidth = 1)")
+qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.1, main = "figure-19\n(binwidth = 0.1)")
+qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.01, main = "figure-20\n(binwidth = 0.01)")
 ```
 
 ![qplot 18-20](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2018-20.png)
 
 ```r
-p21 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.1, main = "figure-21\n(adjust = 0.1)")
-p22 <- qplot(carat, data = diamonds, geom = "density", adjust = 0.5, main = "figure-22\n(adjust = 0.5)")
-p23 <- qplot(carat, data = diamonds, geom = "density", adjust = 1, main = "figure-23\n(adjust = 1)")
+qplot(carat, data = diamonds, geom = "density", adjust = 0.1, main = "figure-21\n(adjust = 0.1)")
+qplot(carat, data = diamonds, geom = "density", adjust = 0.5, main = "figure-22\n(adjust = 0.5)")
+qplot(carat, data = diamonds, geom = "density", adjust = 1, main = "figure-23\n(adjust = 1)")
 ```
 
 ![qplot 21-23](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2021-23.png)
@@ -233,8 +233,8 @@ p23 <- qplot(carat, data = diamonds, geom = "density", adjust = 1, main = "figur
 + 類別型變量依據不同的圖形屬性分類
 
 ```r
-p24 <- qplot(carat, data = diamonds, geom = "density", colour = color)
-p25 <- qplot(carat, data = diamonds, geom = "histogram", fill = color)
+qplot(carat, data = diamonds, geom = "density", colour = color)
+qplot(carat, data = diamonds, geom = "histogram", fill = color)
 ## fill 代表繪製實心的bar
 ```
 
@@ -255,7 +255,7 @@ p25 <- qplot(carat, data = diamonds, geom = "histogram", fill = color)
 - . ~ col_var ：單列多行圖形矩陣
 
 ```r```
-p26 <- qplot(carat, data = diamonds, geom = "histogram", facets = color ~ ., binwidth = 0.1, xlim = c(0, 3))
+qplot(carat, data = diamonds, geom = "histogram", facets = color ~ ., binwidth = 0.1, xlim = c(0, 3))
 ``````
 
 ![qplot 26](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2026.png)
