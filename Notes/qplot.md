@@ -195,7 +195,7 @@ p13 <- qplot(carat, price, data = dsmall, geom = c("point", "smooth"), main = "f
 
 **2).** geom = boxplot與geom = jitter(擾動點圖)
     在data frame中可能包含類別型變量與連續型變量，我們想知道連續型變量如何隨著類別型變量變化而變化，因此可藉由boxplot或jitter達到這個目的。
-https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2021-23.       ...png```r
+```r
 p14 <- qplot(color, price/carat, data = diamonds, geom = "jitter", main = "figure-14")
 p15 <- qplot(color, price/carat, data = diamonds, geom = "boxplot", main = "figure-15")
 ```
@@ -244,6 +244,7 @@ p25 <- qplot(carat, data = diamonds, geom = "histogram", fill = color)
 
 **5).** geom = "line"
 
+<br></br>
 ##### 分面(facet)
 
 透過切割數據成多個子集，再繪製成許多窗格的圖形矩陣，以進行數據間的比較。
