@@ -1,5 +1,4 @@
-##數據可視化套件 — ggplot2
-###➢ 前言
+## qplot Notes
 ###➢ 圖形語法概述
 統計圖形：
 ![wilkinson](https://raw.githubusercontent.com/Carlhank/R-Notes/master/ggplot_figure/Wilkinson_grammar.png)
