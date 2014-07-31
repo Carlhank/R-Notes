@@ -56,7 +56,7 @@ str(mpg)
 
 ● class       ：類別
 
-
+<br></br>
 #####Question：引擎大小與油耗量的關係?
 
 #####Scatter plot
@@ -75,4 +75,10 @@ qplot(displ, hwy, data = mpg, colour = factor(cyl))
 
 1. 排氣量大多較汽缸數少的車輛來的多。
 2. 高速公路的耗油量較汽缸數少的車輛來的低。
+
+接著我們將探討這張圖形的構成
+<br></br>
+######圖形屬性與數據映射
+
++ 圖形屬性：
 
