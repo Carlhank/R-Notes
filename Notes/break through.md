@@ -82,3 +82,4 @@ qplot(displ, hwy, data = mpg, colour = factor(cyl))
 
 + 圖形屬性：
 
++ 
