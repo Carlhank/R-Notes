@@ -6,3 +6,10 @@
 
 # R data files from past sessions
 .Rdata
+
+# Mac file
+.DS_Store
+
+# vim swp and log file
+*.swp
+log/*.log
