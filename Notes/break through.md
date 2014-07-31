@@ -23,7 +23,7 @@ head(mpg)
 str(mpg)
 ``````
 
-`````
+``````
 'data.frame':234 obs. of  11 variables:
  $ manufacturer: Factor w/ 15 levels "audi","chevrolet",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ model       : Factor w/ 38 levels "4runner 4wd",..: 2 2 2 2 2 2 2 3 3 3 ...
@@ -36,7 +36,7 @@ str(mpg)
  $ hwy         : int  29 29 31 30 26 26 27 26 25 28 ...
  $ fl          : Factor w/ 5 levels "c","d","e","p",..: 4 4 4 4 4 4 4 4 4 4 ...
  $ class       : Factor w/ 7 levels "2seater","compact",..: 2 2 2 2 2 2 2 2 2 2 ...
-`````
+``````
 
 重要變量描述：
 
@@ -44,15 +44,15 @@ str(mpg)
 
 ● model       ：車子型號
 
-● displ       ：引擎排氣量(升)         
+● displ       ：引擎排氣量(升)
 
 ● year        ：汽車出廠年度
 
-● cyl         ：汽缸數目               
+● cyl         ：汽缸數目
 
 ● cty         ：城市道路耗油量
 
-● hwy         ：高速公路耗油量         
+● hwy         ：高速公路耗油量
 
 ● class       ：類別
 
@@ -78,8 +78,7 @@ qplot(displ, hwy, data = mpg, colour = factor(cyl))
 
 接著我們將探討這張圖形的構成
 <br></br>
-######圖形屬性與數據映射
+######圖形屬性與數據映射：
 
 + 圖形屬性：
-
 + 
