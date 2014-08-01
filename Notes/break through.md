@@ -88,7 +88,7 @@ qplot(displ, hwy, data = mpg, colour = factor(cyl))
   2. 重直位置 → hwy
   3. 點的顏色 → cyl
 
-+ **尺度變換(scaling)**：mpg中(displ, hwy, cyl)的原始數據，對於電腦而言是不具任何意義的，因此需透過標度變換讓電腦可以辨認這些數據。
++ **尺度變換(scaling)**：mpg中(displ, hwy, cyl)的原始數據，對於電腦而言是不具任何意義的，因此需透過尺度變換讓電腦可以辨認這些數據。
 
   座標轉換：(水平位置, 垂直位置) = (displ, hwy) 分別映射至 [0, 1] 區間上，再透過座標系統(coord)決定位置。
 
