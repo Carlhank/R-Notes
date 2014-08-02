@@ -83,7 +83,7 @@ qplot(displ, hwy, data = mpg, colour = factor(cyl))
 + 圖形屬性(aesthetics)：本張散布圖中的每個點都有其對應的座標、形狀、大小與顏色，這些屬性我們稱為**圖形屬性**。
 
   每個圖形屬性都可以映射為一個變量，如上圖中：
-  
+
   1. 水平位置 → displ
   2. 重直位置 → hwy
   3. 點的顏色 → cyl
@@ -107,7 +107,7 @@ Ex：
 | 0.037| 0.406|#0000FF |  1| 19|
 | 0.074| 0.500|#0000FF |  1| 19|
 
-將displ與hwy進行作標轉換成x, y，cyl轉換成電腦可辨識的16進位的色彩符。
+將displ與hwy進行作標轉換成x, y，cyl轉換成電腦可辨識的16進位的RGB色彩符。
 
 ##### 完整圖形要素：
 + data(數據)
@@ -121,7 +121,7 @@ Ex：
 
 **2).** 尺度
 
-控制數據至圖形屬性的映射
+控制數據至圖形屬性的映射，圖形上每一個圖形屬性都對應一個尺度，一個尺度就是含有一組參數的函數，如：顏色梯度、線條粗細、點的形狀...等。
 
 **3).** 座標系
 
@@ -133,3 +133,32 @@ Ex：
 
 **4).** 分面
 
+分面為條件繪圖(condition plots)與網格繪圖(trellised plots)的一般形式，以方便的展示及比對子集數據。
+
+### 數據內容處理
+當我們獲得一張圖形時，可透過下方函數對數據進行處理：
++ print()  ：印出圖形(常用於迴圈內)
++ ggsave() ：保存圖片
++ summary()：查詢圖形結構
++ save()   ：保存圖形對象
++ load()   ：載入圖形對象
+
+☞ Example：
+```r```
+p <- qplot(displ, hwy, data = mpg, colour = factor(cyl))  ## 建立圖形
+print(p)                                                  ## 印出圖形
+ggsave("plot.png", width = 480, height =240)              ## 保存圖形
+summary(p)                                                ## 展示圖形內容
+    ``````
+    data: manufacturer, model, displ, year, cyl, trans, drv, cty, hwy, fl, class [234x11]
+    mapping:  colour = factor(cyl), x = displ, y = hwy
+    faceting: facet_null()
+    -----------------------------------
+    geom_point:
+    stat_identity:
+    position_identity: (width = NULL, height = NULL)
+
+    ``````
+save(p, file = "qplot.rdata")                              ## 保存圖形對象
+load("qplot.rdata")                                        ## 載入圖形對象
+``````
