@@ -132,6 +132,17 @@ p + geom_point(aes(y = disp)) + labs(title = "change y-axis corresponding data",
 
 **Topic 設定與映射**
 
+在圖層參數中，我們可以將圖形屬性設定為單一值(如：colour = "blue")，不過我們需要區別以下這兩種用法：
+
+```r
+g <- ggplot(mtcar, aes(mpg, wt))
+g + geom_point(colour = "darkblue")
+g + geom_point(aes(colour = "darkblue")) + labs(title = 'aes(colour = "darkblue")')
+```
+![setting and mapping]()
+圖左：將顏色設定為單一的深藍色
+圖右：建立一個"darkblue"的字符變量，再將colour映射到這個變量，但此變量為離散型，因此默認的顏色尺度會取用色輪上等間距之顏色
+
 **Topic 分組**
 
 **Topic 匹配圖形數性與圖形對象**
