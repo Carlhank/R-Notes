@@ -6,7 +6,7 @@
 
 #### ☞例：耗油量數據集(數據來源：[EPA燃油經濟網站](http://fueleconomy.gov))
 
-```r```
+``````r
 head(mpg)
 ``````
 
