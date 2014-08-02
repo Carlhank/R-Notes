@@ -140,7 +140,9 @@ g + geom_point(colour = "darkblue")
 g + geom_point(aes(colour = "darkblue")) + labs(title = 'aes(colour = "darkblue")')
 ```
 ![setting and mapping](https://github.com/Carlhank/ggplot2-note/blob/master/ggplot_figure/layer/setting%20and%20mapping.png)
+
 圖左：將顏色設定為單一的深藍色
+
 圖右：建立一個"darkblue"的字符變量，再將colour映射到這個變量，但此變量為離散型，因此默認的顏色尺度會取用色輪上等間距之顏色
 
 **Topic 分組**
