@@ -136,7 +136,7 @@ p + geom_point(aes(y = disp)) + labs(title = "change y-axis corresponding data",
 
 ```r
 g <- ggplot(mtcar, aes(mpg, wt))
-g + geom_point(colour = "darkblue")
+g + geom_point(colour = "darkblue") + labs(title = 'colour = "darkblue"')
 g + geom_point(aes(colour = "darkblue")) + labs(title = 'aes(colour = "darkblue")')
 ```
 ![setting and mapping](https://github.com/Carlhank/ggplot2-note/blob/master/ggplot_figure/layer/setting%20and%20mapping.png)
