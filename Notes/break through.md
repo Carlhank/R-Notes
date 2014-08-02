@@ -6,7 +6,7 @@
 
 #### ☞例：耗油量數據集(數據來源：[EPA燃油經濟網站](http://fueleconomy.gov))
 
-```r```
+``````r
 head(mpg)
 ``````
 
@@ -19,7 +19,7 @@ head(mpg)
 |audi         |a4    |   2.8| 1999|   6|auto(l5)   |f   |  16|  26|p  |compact |
 |audi         |a4    |   2.8| 1999|   6|manual(m5) |f   |  18|  26|p  |compact |
 
-```r```
+``````r
 str(mpg)
 ``````
 
@@ -63,7 +63,7 @@ str(mpg)
 
 透過繪製散布圖的方式，可以粗略的得到這個問題的答案，以下我們來看看該如何繪製這張散布圖：
 
-```r```
+``````r
 qplot(displ, hwy, data = mpg, colour = factor(cyl))
 ``````
 
@@ -144,7 +144,7 @@ Ex：
 + load()   ：載入圖形對象
 
 ☞ Example：
-```r```
+``````r
 p <- qplot(displ, hwy, data = mpg, colour = factor(cyl))  ## 建立圖形
 print(p)                                                  ## 印出圖形
 ggsave("plot.png", width = 480, height =240)              ## 保存圖形
