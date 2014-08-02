@@ -99,7 +99,7 @@ aes(weight, height, colour = sqrt(age))
 
 ※ 註：在指定變量時，最好指定位於相同數據集的變量。
 
-如：aes(diamonds$carat, height, colour = sqrt(age))這樣的指定方式是不好的
+如：``````aes(diamonds$carat, height, colour = sqrt(age))``````這樣的指定方式是不好的
 
 **Topic 圖與圖層**
 
