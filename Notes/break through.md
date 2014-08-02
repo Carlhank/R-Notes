@@ -6,9 +6,9 @@
 
 #### ☞例：耗油量數據集(數據來源：[EPA燃油經濟網站](http://fueleconomy.gov))
 
-``````r
+```r
 head(mpg)
-``````
+```
 
 |manufacturer |model | displ| year| cyl|trans      |drv | cty| hwy|fl |class   |
 |:------------|:-----|-----:|----:|---:|:----------|:---|---:|---:|:--|:-------|
@@ -19,11 +19,11 @@ head(mpg)
 |audi         |a4    |   2.8| 1999|   6|auto(l5)   |f   |  16|  26|p  |compact |
 |audi         |a4    |   2.8| 1999|   6|manual(m5) |f   |  18|  26|p  |compact |
 
-``````r
+```r
 str(mpg)
-``````
+```
 
-``````
+```
 'data.frame':234 obs. of  11 variables:
  $ manufacturer: Factor w/ 15 levels "audi","chevrolet",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ model       : Factor w/ 38 levels "4runner 4wd",..: 2 2 2 2 2 2 2 3 3 3 ...
@@ -36,7 +36,7 @@ str(mpg)
  $ hwy         : int  29 29 31 30 26 26 27 26 25 28 ...
  $ fl          : Factor w/ 5 levels "c","d","e","p",..: 4 4 4 4 4 4 4 4 4 4 ...
  $ class       : Factor w/ 7 levels "2seater","compact",..: 2 2 2 2 2 2 2 2 2 2 ...
-``````
+```
 
 重要變量描述：
 
@@ -63,9 +63,9 @@ str(mpg)
 
 透過繪製散布圖的方式，可以粗略的得到這個問題的答案，以下我們來看看該如何繪製這張散布圖：
 
-``````r
+```r
 qplot(displ, hwy, data = mpg, colour = factor(cyl))
-``````
+```
 
 ![mpg-scatter](https://github.com/Carlhank/ggplot2-note/blob/master/ggplot_figure/mpg-scatter.png)
 
@@ -144,7 +144,7 @@ Ex：
 + load()   ：載入圖形對象
 
 ☞ Example：
-``````r
+```r
 p <- qplot(displ, hwy, data = mpg, colour = factor(cyl))  ## 建立圖形
 print(p)                                                  ## 印出圖形
 ggsave("plot.png", width = 480, height =240)              ## 保存圖形
@@ -161,4 +161,4 @@ summary(p)                                                ## 展示圖形內容
     ``````
 save(p, file = "qplot.rdata")                              ## 保存圖形對象
 load("qplot.rdata")                                        ## 載入圖形對象
-``````
+```

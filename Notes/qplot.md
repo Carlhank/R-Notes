@@ -28,7 +28,7 @@ library(ggplot2)
 
 ###➢ qplot 快速繪圖
 #### 簡介
-qplot：為quick plot的縮寫，目的為讓使用者快速的繪製出複雜的圖形，qplot的使用方式類似於R中的基本繪圖函數plot，我們可以利用```?qplot```查詢相關參數的描述。
+qplot：為quick plot的縮寫，目的為讓使用者快速的繪製出複雜的圖形，qplot的使用方式類似於R中的基本繪圖函數plot，我們可以利用``````?qplot``````查詢相關參數的描述。
 
 #### ☞例：鑽石數據集繪圖
 在ggplot2中提供了一個diamonds的數據集，我們將利用這個數據集提供一個qplot的繪圖範例。
@@ -249,13 +249,13 @@ qplot(carat, data = diamonds, geom = "histogram", fill = color)
 
 透過切割數據成多個子集，再繪製成許多窗格的圖形矩陣，以進行數據間的比較。
 
-以```row_var ~ col_var```指定分面形式
+以``````row_var ~ col_var``````指定分面形式
 
 - row_var ~ . ：多列單行圖形矩陣
 - . ~ col_var ：單列多行圖形矩陣
 
-```r```
+```r
 qplot(carat, data = diamonds, geom = "histogram", facets = color ~ ., binwidth = 0.1, xlim = c(0, 3))
-``````
+```
 
 ![qplot 26](https://github.com/Carlhank/R-Notes/blob/master/ggplot_figure/qplot%2026.png)
