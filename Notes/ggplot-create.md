@@ -81,3 +81,58 @@ p %+% mtcars + labs(title = expression(paste("Transfer mpg data to ", mpg^2, sep
 ```
 ![Change data](https://github.com/Carlhank/ggplot2-note/blob/master/ggplot_figure/layer/change%20data.png)
 
+### 圖形屬性映射
+
+aes()函數：用於將數據變量映射至圖形中，使數據變為可以感知的圖形屬性，如：
+
+```r
+aes(weight, height, colour = sqrt(age))
+```
+
+```
+    List of 3
+    $ x     : symbol weight
+    $ y     : symbol height
+    $ colour: language sqrt(age)
+```
+在此我們指定x軸映射到weight變量, y軸映射到heigth變量, colour映射到sqrt(age)
+
+※ 註：在指定變量時，最好指定位於相同數據集的變量。
+
+如：aes(diamonds$carat, height, colour = sqrt(age))這樣的指定方式是不好的
+
+**Topic 圖與圖層**
+
+默認的圖形屬性：
+
+1. 圖形初始化時設定
+2. 使用```````+``````進行添加或修改
+
+以下兩種方式可建立相同圖形：
+
+```r
+## method1.
+p <- ggplot(mtcars, aes(x = mpg, y = wt))
+p + geom_point()
+
+## method2.
+p <- ggplot(mtcars)
+p <- p + aes(x = mpg, y = wt)
+```
+![add aes]()
+
+在新圖中進行添加或修改：
+
+```r
+p <- ggplot(mtcars, aes(x = mpg, y = wt))
+p + geom_point(aes(colour = factor(cyl))) + labs(title = "add colour aes")      ## 添加colour屬性
+p + geom_point(aes(y = disp)) + labs(title = "change y-axis corresponding data", y = "disp")        ## 修改數據(注意：在此更換y軸數據後y-label需重新修改，否則y-label仍會與原始圖形相同)
+```
+![add or modify]()
+
+**Topic 設定與映射**
+
+**Topic 分組**
+
+**Topic 匹配圖形數性與圖形對象**
+
