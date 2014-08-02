@@ -56,3 +56,14 @@ grid.arrange(
         ncol = 2
 )
 dev.off()
+
+#³]©w»P¬M®g
+g <- ggplot(mtcars, aes(mpg, wt))
+
+png("setting and mapping.png", width = 640, height = 240)
+grid.arrange(
+    g + geom_point(colour = "darkblue") + labs(title = 'colour = "darkblue"'),
+    g + geom_point(aes(colour = "darkblue")) + labs(title = 'aes(colour = "darkblue")'),
+    ncol = 2
+    )
+dev.off()
