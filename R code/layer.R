@@ -33,3 +33,26 @@ grid.arrange(
         ncol = 2)
 dev.off()
 
+## 圖與圖層
+# 1. 圖形屬性於初始時設定
+p <- ggplot(mtcars, aes(x = mpg, y = wt))
+p + geom_point()
+
+# 2. 使用'+'進行修改
+p <- ggplot(mtcars)
+p <- p + aes(x = mpg, y = wt)
+
+png("layer-figure-1.png", width = 480, height = 240)
+p + geom_point()
+dev.off()
+
+## 新圖中進行添加或修改
+p <- ggplot(mtcars, aes(x = mpg, y = wt))
+
+png("layer-figuer-2.png", width = 640, height = 240)
+grid.arrange(
+        p + geom_point(aes(colour = factor(cyl))) + labs(title = "add colour aes"),
+        p + geom_point(aes(y = disp)) + labs(title = "change y-axis corresponding data", y = "disp"),
+        ncol = 2
+)
+dev.off()
