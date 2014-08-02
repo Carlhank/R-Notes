@@ -79,5 +79,5 @@ mtcars <- transform(mtcars, mpg = mpg^2)
 p + labs(title = "Original mpg data")
 p %+% mtcars + labs(title = expression(paste("Transfer mpg data to ", mpg^2, sep = "")))
 ```
-![Change data]()
+![Change data](https://github.com/Carlhank/ggplot2-note/blob/master/ggplot_figure/layer/change%20data.png)
 
