@@ -60,7 +60,6 @@ Ex：
 p <- ggplot(data = diamonds, aes(x = carat, y = price, colour = cut))
 p + geom_point()
 ```
-<br></br>
 由上方的語法，我們會發現在建立圖形對象與建立圖層的語法上，data這個參數所在的位置不同，
 這是因為：圖形對象一般現設定數據集；圖層大多用於設定圖形屬性而非數據集。
 
