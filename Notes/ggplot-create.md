@@ -119,7 +119,7 @@ p + geom_point()
 p <- ggplot(mtcars)
 p <- p + aes(x = mpg, y = wt)
 ```
-![add aes]()
+![add aes](https://github.com/Carlhank/ggplot2-note/blob/master/ggplot_figure/layer/layer-figure-1.png)
 
 在新圖中進行添加或修改：
 
@@ -128,7 +128,7 @@ p <- ggplot(mtcars, aes(x = mpg, y = wt))
 p + geom_point(aes(colour = factor(cyl))) + labs(title = "add colour aes")      ## 添加colour屬性
 p + geom_point(aes(y = disp)) + labs(title = "change y-axis corresponding data", y = "disp")        ## 修改數據(注意：在此更換y軸數據後y-label需重新修改，否則y-label仍會與原始圖形相同)
 ```
-![add or modify]()
+![add or modify](https://github.com/Carlhank/ggplot2-note/blob/master/ggplot_figure/layer/layer-figuer-2.png)
 
 **Topic 設定與映射**
 
